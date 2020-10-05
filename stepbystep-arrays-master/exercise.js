@@ -15,7 +15,6 @@ remove(myList, 2);
 var myList = ['a', 'b', 'c', 'd'];
 function remove(list, i) {
     var removeFromList = list.splice(i, 1)
-    // return removeFromList
 }
 remove(myList, 2);
 
@@ -50,14 +49,34 @@ or a ternary at some point...
 */
 
 var myList = ['Java', 'PHP', 'Ruby'];
+// function reversed(list) {
+//     list.reverse();
+//     return list
+// }
+
+
+// myList.reverse().forEach(function(eachItem, i){
+//     console.log(i, eachItem)
+// })
+
+
 function reversed(list) {
-    list.reverse();
-    return list
+    // console.log("list", list);
+    var result = '';
+    for(var i = list.length - 1; i >= 0; i--){
+        result = result + list[i];
+        if (i !== 0){
+            result = result + ',';
+        }
+    }
+    return result
+    
 }
 
-var first = 'a';
-var second = 'b';
-var joined = first.concat(second)
+
+// var first = 'a';
+// var second = 'b';
+// var joined = first.concat(second)
 
 
 
@@ -80,3 +99,52 @@ var scores = [50, 120, 180, 10];
 var percentages = calculatePercentages(scores, 200);
 // percentages: [25, 60, 90, 5]
 */
+
+
+
+
+
+
+var scores = [50, 120, 180, 10];
+
+function calculatePercentages(scores, totalPossibleScore){
+    var total = 0;
+    var result = [];
+    for (var i = 0; i < scores.length; i++) {
+    	result.push((scores[i] / totalPossibleScore) * 100);
+    }
+    	return result;
+}
+
+var percentages = calculatePercentages(scores, 200);
+
+
+
+
+// second method
+// var scores = [50, 120, 180, 10];
+// var calculatePercentages = function (listScores, totalPossibleScore){
+//     return listScores.map(
+// 	  function(listScores) { return (listScores / totalPossibleScore) * 100; }
+// 	);
+	
+// }
+
+// var result =  calculatePercentages(scores, 200);
+
+
+
+
+var scores = [10, 20, 80, 60]
+
+scores.map(function multiplication(numbers){
+    return numbers * 10
+}
+)
+console.log(scores.map)
+
+evenNumbers.map(function isEven(num){
+    return (num % 2 === 0); 
+})
+
+var evenNumbers = [2, 4, 5, 8, 1]

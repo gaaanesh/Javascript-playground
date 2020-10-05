@@ -90,10 +90,67 @@
 // }
 
 
-var first = 'a';
-var second = 'b';
-var joined = first.concat(second)
+// var first = 'a';
+// var second = 'b';
+// var joined = first.concat(second)
 
+// var scores = [50, 120, 180, 10];
+// var calculatePercentages = function (listOfScores, totalPossibleScore){
+//     return listOfScores.map(
+// 	  function(listOfScores) { return (listOfScores / totalPossibleScore) * 100; }
+// 	);
+	
+// }
+
+// var result =  calculatePercentages(scores, 200);
+
+
+var myList = ['Java', 'PHP', 'Ruby', 'HTML', 'CSS', 'Typescript', 'gg', 'mm'];
+// function reversed(list) {
+//     list.reverse();
+//     return list
+// }
+
+function reversed(list) {
+    var result = '';
+    for(var i = 0; i < list.length; i++){
+        result = result + list[i];
+        if(i!==list.length -1){
+        	result = result + ','
+        }
+    }
+    return result;
+    
+}
+
+
+
+
+var scores = [50, 120, 180, 10];
+var calculatePercentages = function (listScores, totalPossibleScore){
+    return listScores.map(
+	  function(listScores) { return (listScores / totalPossibleScore) * 100; }
+	);
+	
+}
+
+var result =  calculatePercentages(scores, 200);
+
+
+
+// var myList = ['Java', 'PHP', 'Ruby'];
+// function reversed(list) {
+//     list.reverse();
+//     return list
+// }
+
+////////////////
+
+
+
+// var percentages = calculatePercentages(scores, 200);
+
+// console.log(percentages)
 
 // var part1 = "Javascript";
 // var part2 = "is";
