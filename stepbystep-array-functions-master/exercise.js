@@ -46,7 +46,10 @@ var pricesWithTax = withTax(prices)
 function withTax(pricesNumbers){
 	return pricesNumbers.map(
 		function(pricesNum){
-		return Number((pricesNum + ((pricesNum/100)*20)).toFixed(2).replace(/[.,](00)|0$/, ''));
+			if (pricesNum >= 100){
+			return Number((pricesNum + ((pricesNum/100)*20)).toFixed(2));
+			}
+			return pricesNum
 	})
 }
 
@@ -96,18 +99,18 @@ var perRegionPerQuater = [
 	[10, 90, 38, 22], // Rainfall for Berlin
 ];
 
-function totalPerRegionss (runnigTotal, firstNumber){
+function totalcalculation (runnigTotal, firstNumber){
 	return runnigTotal + firstNumber
 }
 
-perRegionPerQuater.forEach(function (s){
-	console.log (s.reduce(totalPerRegionss, 0));
-}
-)
-
-function totalPerRegion(){	
-	
+function reduceNumber(s){
+	return s.reduce(totalcalculation, 0);
 }
 
+function totalPerRegion(num){	
+	return num.map(reduceNumber)
+}
+
+var perRegionAnually = totalPerRegion(perRegionPerQuater);
 
 
