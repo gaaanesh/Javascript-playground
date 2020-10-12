@@ -72,10 +72,4 @@ function AddableExamResultSet(examNumbers){
 
 AddableExamResultSet.prototype = Object.create(ExamResultSet.prototype);
 
-AddableExamResultSet.prototype.add = function(){
-    const getAverageAddable = ExamResultSet.prototype.getAverage.call(this);
-    const getHighestAddable = ExamResultSet.prototype.getHighest.call(this);
-    const getLowestAddable = ExamResultSet.prototype.getLowest.call(this);
-    return getAverageAddable + getHighestAddable + getLowestAddable
-}
 
