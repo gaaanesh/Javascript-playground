@@ -65,6 +65,17 @@ returns [0, 1, 2]
 
 
 // Example 1:
+// var loadedWithNames = preloadedMap('John', 'Terry', 'Dave')
+
+// function loadedWithNames(name){
+//     return 'Hello ' + name;
+// }
+
+// function preloadedMap(...nums){
+//     return nums.map(loadedWithNames)
+// }
+
+
 var loadedWithNames = preloadedMap('John', 'Terry', 'Dave')
 
 function loadedWithNames(name){
@@ -72,20 +83,21 @@ function loadedWithNames(name){
 }
 
 function preloadedMap(...nums){
-    return nums.map(loadedWithNames)
+   return function (fun){
+        return nums.map(fun)
+    }
 }
-
 
 
 
 // Example 2: 
 
-var loadedWithNumbers = preloadedMap(1, 2, 3)
+// var loadedWithNumbers = preloadedMap(1, 2, 3)
 
-function loadedWithNumbers(number){
-    return number - 1;
-}
+// function loadedWithNumbers(number){
+//     return number - 1;
+// }
 
-function preloadedMap(...nums){
-    return nums.map(loadedWithNumbers)
-}
+// function preloadedMap(...nums){
+//     return nums.map(loadedWithNumbers)
+// }
