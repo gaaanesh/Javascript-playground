@@ -24,7 +24,8 @@ https://developer.mozilla.org/en-US/docs/web/javascript/reference/global_objects
 
 You’d need to use them with something I haven’t shown you yet, arguments spread:
 
-Math.max(...[9, 4, 5, 3]) which is the same as doing Math.max(9, 4, 5, 3). The argument spread syntax (ES6+) explodes an array when used as a function argument such that each element in the array is a new argument to the function.
+Math.max(...[9, 4, 5, 3]) which is the same as doing Math.max(9, 4, 5, 3). 
+The argument spread syntax (ES6+) explodes an array when used as a function argument such that each element in the array is a new argument to the function.
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax
 */
 
@@ -43,11 +44,12 @@ ExamResultSet.prototype.getAverage = function(){
 }
 
 ExamResultSet.prototype.getHighest = function (){
-    return Math.max.apply(null, this.examNumbers);
+    // console.log(this.examNumbers);
+    return Math.max(...this.examNumbers);
 }
 
 ExamResultSet.prototype.getLowest = function (){
-    return Math.min.apply(null, this.examNumbers);
+    return Math.min(...this.examNumbers);
 }
 
 /*s
@@ -66,10 +68,12 @@ set.add(30);
 set.getAverage(); // 20
 */
 
-function AddableExamResultSet(examNumbers){
-    ExamResultSet.call(this, examNumbers);
+function AddableExamResultSet(){
+    this.examNumbers = [];
 }
 
 AddableExamResultSet.prototype = Object.create(ExamResultSet.prototype);
 
-
+AddableExamResultSet.prototype.add = function (i){
+    return this.examNumbers.push(i)
+}
